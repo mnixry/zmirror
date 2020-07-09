@@ -2,8 +2,7 @@ FROM python:3.8.3-buster
 
 COPY * /zmirror/
 
-CMD cd /zmirror/ && \
-	pip install -r ./requirements.txt
+CMD python3 -m pip install -r /zmirror/requirements.txt
 
 ENV FLASK_DEBUG False
 EXPOSE 80/tcp

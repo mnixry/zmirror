@@ -1,7 +1,5 @@
 FROM python:buster
 
-RUN user
-
 COPY ./ /zmirror/
 WORKDIR /zmirror/
 

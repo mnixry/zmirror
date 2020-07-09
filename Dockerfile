@@ -1,10 +1,10 @@
-FROM python:3.8.3-buster
+FROM python:buster
 
-COPY * /zmirror/
+COPY ./* /zmirror/
 WORKDIR /zmirror/
 
-RUN python3 -m pip install -r ./requirements.txt
-RUN python3 test.py
+RUN python3 -m pip install -r ./requirements.txt && \
+    python3 ./test.py
 
 EXPOSE 80/tcp
 

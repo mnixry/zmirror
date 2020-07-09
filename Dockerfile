@@ -1,13 +1,17 @@
 FROM python:buster
 
+RUN user
+
 COPY ./ /zmirror/
 WORKDIR /zmirror/
 
-RUN ls -a && \
-    python3 -m pip install -r ./requirements.txt && \
-    python3 ./test.py
+RUN apt-get update -y && \
+    apt-get upgrade -y && \
+    lsattr && \
+    python3 -m pip install pip -U && \
+    python3 -m pip install -r ./requirements.txt
 
 EXPOSE 80/tcp
 
 ENV FLASK_DEBUG False
-CMD ["python3","./wsgi.py"]
+ENTRYPOINT ["python3","./wsgi.py"]

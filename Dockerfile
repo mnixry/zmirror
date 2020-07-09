@@ -1,9 +1,10 @@
 FROM python:buster
 
-COPY ./* /zmirror/
+COPY ./ /zmirror/
 WORKDIR /zmirror/
 
-RUN python3 -m pip install -r ./requirements.txt && \
+RUN ls -a && \
+    python3 -m pip install -r ./requirements.txt && \
     python3 ./test.py
 
 EXPOSE 80/tcp

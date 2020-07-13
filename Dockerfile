@@ -12,4 +12,4 @@ RUN apt-get update -y && \
 EXPOSE 80/tcp
 
 ENV FLASK_DEBUG False
-ENTRYPOINT ["python3","./wsgi.py"]
+ENTRYPOINT ["python3","/zmirror/wsgi.py"]
